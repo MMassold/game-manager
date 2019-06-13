@@ -14,5 +14,16 @@ class GUI:
         self.master.configure(background = "gray")
 
     def create_mainpage(self):
-        self.button1 = tk.Button(self.master, text="Click Me!", command=lambda: self.library.method('Clicked')).pack()
-        self.entry1 = tk.Entry(self.master, justify='center').pack()
+        self.master.grid_columnconfigure(2, minsize=80)
+        self.master.grid_rowconfigure(0, minsize=300)
+        self.submit = tk.Button(self.master, text="Submit", command=lambda: self.library.method(self.title.get())).grid(row=2, column=3)
+        self.title = tk.StringVar()
+        self.title_label = tk.Label(self.master, background='gray', text='Title: ').grid(row=1, column=0)
+        self.title_entry = tk.Entry(self.master, justify='center', textvariable=self.title).grid(row=1, column=1)
+        self.console = tk.StringVar()
+        self.console_label = tk.Label(self.master, background='gray', text='Console: ').grid(row=2, column=0)
+        self.console_entry = tk.Entry(self.master, justify='center', textvariable=self.title).grid(row=2, column=1)
+        self.status = tk.StringVar()
+        self.status_label = tk.Label(self.master, background='gray', text='Status: ').grid(row=3, column=0)
+        self.status_entry = tk.Entry(self.master, justify='center', textvariable=self.title).grid(row=3, column=1)
+
